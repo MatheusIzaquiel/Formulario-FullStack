@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Formulario-FullStack
 
-## Getting Started
+## Visão geral
 
-First, run the development server:
+Este repositório contém um projeto **full stack** baseado em **Next.js com TypeScript** para criar e gerenciar formulários de forma responsiva e conectada entre frontend e backend. O projeto foi iniciado a partir de um template de aplicação Next.js e pode ser usado como base para interfaces que capturam dados, enviam para um backend e exibem os dados cadastrados. O código segue a estrutura padrão do Next.js com a pasta `app` para rotas e páginas, e outras pastas como `lib`, `middlewares` e `services` para lógica adicional e organização da aplicação. O projeto é útil para aprender conceitos de aplicações full stack com React e Next.js, integração de formulários e tratamento de dados no lado do servidor.
 
-```bash
+## Tecnologias
+
+Este projeto utiliza as seguintes tecnologias e ferramentas:
+
+- Next.js (framework React para aplicações full stack)
+- React
+- TypeScript
+- CSS
+- Vercel (para deploy)
+- Estrutura de pastas padrão do Next.js com `app`, `lib`, `middlewares` e `services`
+
+## Pré-requisitos
+
+Antes de executar o projeto localmente é necessário ter:
+
+1. Node.js instalado (versão recomendada LTS).
+2. npm ou yarn como gerenciador de pacotes.
+3. Editor de código com suporte a TypeScript e Next.js.
+
+## Instalação
+
+Siga os passos abaixo para configurar o projeto em sua máquina:
+
+1. Clone o repositório:
+git clone https://github.com/MatheusIzaquiel/Formulario-FullStack.git
+
+2. Acesse a pasta do projeto:
+cd Formulario-FullStack
+
+3. Instale as dependências:
+npm install
+
+## Como executar
+
+Para iniciar o servidor de desenvolvimento, execute:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Após iniciar, a aplicação ficará disponível em um endereço local como `http://localhost:3000` (conforme o log exibido no terminal). Abra o navegador para visualizar e interagir com os formulários e páginas da aplicação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A estrutura principal inclui:
 
-## Learn More
+- **app/**: Contém as rotas e páginas da aplicação Next.js.
+- **lib/**: Utilitários e funções auxiliares.
+- **middlewares/**: Lógicas intermediárias de requisição/resposta (por exemplo, validações).
+- **services/**: Lógica de serviços, chamadas de API ou integração com backend.
+- **next.config.ts**: Configurações do Next.js.
+- **tsconfig.json**: Configurações do TypeScript.
 
-To learn more about Next.js, take a look at the following resources:
+### Componentes importantes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Formulário principal**: Página que captura os dados do usuário e envia para processamento.
+- **Serviços de envio**: Lógica que processa os dados enviados pelo formulário.
+- **Middleware (se houver)**: Validação ou manipulação de requisições antes do processamento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Fluxo esperado da aplicação
 
-## Deploy on Vercel
+1. O usuário acessa a página principal do formulário.
+2. Preenche os campos obrigatórios e submete o formulário.
+3. O frontend envia os dados para um endpoint (API externa) para processamento.
+4. Os dados são validados, persistidos ou processados conforme a lógica definida no backend.
+5. O usuário recebe feedback do envio (sucesso ou erro) e pode ver os dados cadastrados ou redirecionar para outra página.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Endpoints (exemplo de integração com backend)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Método | Rota                  | Descrição                                    |
+|--------|------------------------|-------------------------------------------------------------------|
+| POST   | `/auth/register`       | Recebe dados do formulário e salva no Database                    |
+| POST   | `/auth/login`          | Usuário faz login com email e senha para acesso                   |
+| GET    | `/auth/profile`        | Verifica o token fornecido e conecta o usuário a uma rota privada |
+|--------|------------------------|-------------------------------------------------------------------|
+
+
+
+## Boas práticas
+
+- Separe a lógica de apresentação da lógica de negócios dentro de `services`.
+- Adicione validação de entradas do usuário no frontend e no backend.
+- Se for persistir dados, utilize um banco de dados apropriado com um ORM ou biblioteca de sua escolha.
+- Documente os endpoints da API usando Swagger ou similares para facilitar uso futuro.
+- Mantenha os tipos do TypeScript alinhados com as rotas e dados esperados.
+
+## Deploy
+
+A forma mais simples de fazer o deploy desta aplicação é usando **Vercel**, que possui integração nativa com projetos Next.js. Para isso:
+
+1. Conecte o repositório ao Vercel.
+2. Configure variáveis de ambiente caso necessário.
+3. Faça o deploy e a plataforma cuidará da build automática e hospedagem.
+
+## Licença
+
+Verifique se há um arquivo `LICENSE` no repositório para detalhes sobre os termos de uso e distribuição do código.
+
+## Contribuição
+
+Para contribuir com melhorias, sugestões de recursos ou correções, abra *issues* ou crie *pull requests* no repositório no GitHub.
+
