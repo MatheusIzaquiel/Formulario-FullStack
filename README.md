@@ -75,7 +75,6 @@ A estrutura principal inclui:
 | POST   | `/auth/register`       | Recebe dados do formulário e salva no Database                    |
 | POST   | `/auth/login`          | Usuário faz login com email e senha para acesso                   |
 | GET    | `/auth/profile`        | Verifica o token fornecido e conecta o usuário a uma rota privada |
-|--------|------------------------|-------------------------------------------------------------------|
 
 
 
